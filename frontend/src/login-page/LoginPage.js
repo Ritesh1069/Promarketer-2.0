@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './login.css';
 
+const API_URL = 'http://localhost:8080/api';
+
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     email: '',
@@ -10,6 +14,7 @@ const LoginPage = () => {
     name: ''
   });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -21,17 +26,49 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
 
     if (!isLogin && formData.password !== formData.confirmPassword) {
       setError('Passwords do not match');
+      setLoading(false);
       return;
     }
 
     try {
-      // TODO: Implement your authentication logic here
-      console.log('Form submitted:', formData);
+      const endpoint = isLogin ? '/login' : '/register';
+      const response = await fetch(`${API_URL}${endpoint}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(isLogin ? {
+          email: formData.email,
+          password: formData.password
+        } : {
+          name: formData.name,
+          email: formData.email,
+          password: formData.password
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'An error occurred');
+      }
+
+      // Store user data in localStorage
+      if (isLogin) {
+        localStorage.setItem('user', JSON.stringify(data.user));
+      }
+      
+      // Redirect to home page
+      window.location.href = 'http://localhost:5173/home';
+      
     } catch (err) {
       setError(err.message || 'An error occurred');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -102,8 +139,8 @@ const LoginPage = () => {
 
           {error && <div className="error-message">{error}</div>}
 
-          <button type="submit" className="login-button">
-            {isLogin ? 'Sign In' : 'Create Account'}
+          <button type="submit" className="login-button" disabled={loading}>
+            {loading ? 'Processing...' : (isLogin ? 'Sign In' : 'Create Account')}
           </button>
 
           <div className="login-footer">

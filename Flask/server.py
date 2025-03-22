@@ -28,6 +28,16 @@ import base64
 import random
 import numpy as np
 import requests
+from pymongo import MongoClient
+from bson import ObjectId
+import bcrypt
+from dotenv import load_dotenv
+
+load_dotenv()
+login_status = False
+client = MongoClient("mongodb+srv://ritesh:12345@adam.w0bda.mongodb.net/?retryWrites=true&w=majority&appName=Adam")
+db = client["user_login_db"]
+users_collection = db.users
 
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -35,6 +45,67 @@ nltk.download('punkt_tab')
 
 app = Flask(__name__)
 CORS(app)
+@app.route('/api/get_login_status', methods=['GET'])
+def get_login_status():
+    global login_status
+    return jsonify({'login_status': login_status}), 200
+
+@app.route('/api/logout', methods=['POST'])
+def logout():
+    global login_status
+    login_status = False
+    return jsonify({'message': 'Logged out successfully'}), 200
+
+@app.route('/api/register', methods=['POST'])
+def register():
+    data = request.get_json()
+    
+    # Check if user already exists
+    if users_collection.find_one({'email': data['email']}):
+        return jsonify({'error': 'Email already registered'}), 400
+    
+    # Hash password
+    salt = bcrypt.gensalt()
+    hashed_password = bcrypt.hashpw(data['password'].encode('utf-8'), salt)
+    
+    # Create user document
+    user = {
+        'name': data['name'],
+        'email': data['email'],
+        'password': hashed_password
+    }
+    
+    # Insert user into database
+    result = users_collection.insert_one(user)
+    
+    return jsonify({
+        'message': 'User registered successfully',
+        'user_id': str(result.inserted_id)
+    }), 201
+
+@app.route('/api/login', methods=['POST'])
+def login():
+    global login_status
+    data = request.get_json()
+    
+    # Find user by email
+    user = users_collection.find_one({'email': data['email']})
+    
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
+    
+    # Verify password
+    if not bcrypt.checkpw(data['password'].encode('utf-8'), user['password']):
+        return jsonify({'error': 'Invalid password'}), 401
+    
+    # Remove password from response
+    user['_id'] = str(user['_id'])
+    del user['password']
+    login_status = True
+    return jsonify({
+        'message': 'Login successful',
+        'user': user
+    }), 200
 
 os.environ["GROQ_API_KEY"] = "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"
 stability_api_key = "sk-gEUN699bN7A1eptOqnc3fqquKo8awZ6im1jr725xSrahIXCp"

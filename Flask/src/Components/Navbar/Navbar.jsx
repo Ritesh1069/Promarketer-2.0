@@ -5,7 +5,12 @@ import Button from '../Button/Button';
 import { IoMdMenu } from "react-icons/io";
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    window.location.href = 'http://localhost:3000/login';
+  };
   return (
     <>
 
@@ -21,6 +26,7 @@ const Navbar = () => {
         <li><Link to={'/about'}>ABOUT</Link></li>
         <li><Link to={'/contact'}>CONTACT US</Link></li>
       </ul>
+      <button onClick={handleLogout} className="logout-btn">Log Out</button>
      {/* <div className='login'> */}
       {/* <BsSearch className='searchicon' style={{ fontSize: '24px'}} /> */}
       {/* <Logins>

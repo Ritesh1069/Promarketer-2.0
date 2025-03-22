@@ -150,3 +150,19 @@ nav ul{
    
     
 }
+.logout-btn {
+    background-color: #dc2626;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 15px;
+    height: 50%;
+  }
+  
+  .logout-btn:hover {
+    background-color: #b91c1c;
+  }

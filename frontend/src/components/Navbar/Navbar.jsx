@@ -2,9 +2,14 @@ import React from 'react'
 import './Navbar.css'
 import { BsSearch } from "react-icons/bs";
 import { IoMdMenu } from "react-icons/io";
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 const Navbar = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    navigate('/login');
+  };
   return (
     <>
 
@@ -26,6 +31,7 @@ const Navbar = () => {
       <Button class='outline' name='LOGIN'/>
       <Button class='bluebox' name='SIGN IN'/>
       </div> */}
+       <button onClick={handleLogout} className="logout-btn">Log Out</button>
       {/* </Logins> */}
       {/* <Link to={'/'}><div className="menuicon"><IoMdMenu style={{fontSize:'36px'}}/></div></Link> */}
       </div>

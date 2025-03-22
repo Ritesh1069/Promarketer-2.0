@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ContentEvaluation from './components/ContentEvaluation';
 import './App.css';
 import Navbar from './components/Navbar/Navbar'
+import LoginPage from './login-page/LoginPage'
 function App() {
   const [prompt, setPrompt] = useState('');
   const [data, setData] = useState(null);
@@ -64,6 +65,7 @@ function App() {
       
       {data && <ContentEvaluation data={data} />}
     </div>
+    {/* <LoginPage/> */}
     </div>
   );
 }
