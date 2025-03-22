@@ -1,0 +1,177 @@
+.right_block{
+    height: 550px;
+    width: 40%;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    position: relative;
+    /* justify-content: center; */
+    align-items: center;
+    margin-top:80px ;
+    flex-direction: column;
+    /* gap: 30px; */
+}
+
+.input{
+    /* border: 1px solid black; */
+    height: 170%;
+    width: 80%;
+    border-radius: 8px;
+    background-color: rgb(232, 232, 232);
+    outline: none;
+    border: 0;
+    /* box-decoration-break: none;    */
+}
+
+.right_block p{
+    font-size: 10px;
+    font-weight: 300;
+    color: rgb(127, 127, 127);
+}
+
+#inpemail{
+    outline: none;
+    border: none;
+    height: 120px;
+
+}
+
+
+.input[type="file"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+  }
+
+  #png_block{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   height: 120px;
+   width:40%
+   /* background-color: white; */
+  }
+
+  #inp_img{
+    width: 60%;
+    height: 100%;
+  }
+
+
+.email_inps{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    gap: 20px;
+}
+    
+.ai_btn{
+    position: absolute;
+    /* margin-left: -90px; */
+    bottom: 33.5%;
+    right: 9.7%;
+    width: 80px;
+    height: 30px;
+    background-color: rgb(33, 33, 33);
+    color: white;
+    border-radius: 8px 0px 8px 0px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    
+}
+
+.spam_btn{
+    position: absolute;
+    /* margin-left: -90px; */
+    bottom: 33.5%;
+    left: 9.7%;
+    width: 120px;
+    height: 30px;
+    background-color: rgb(33, 33, 33);
+    color: white;
+    border-radius: 0px 8px 0px 8px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    /* font-size: 10px; */
+}
+
+
+.email_text{
+    width: 100%;
+}
+
+#wht_3d{
+    height: 100%;
+    width: 34%;
+    margin-left: -10px;
+}
+
+
+
+@media(max-width:760px){
+    .img_h1{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* width: 10%; */
+    }
+    
+    .right_block{
+        width: 80%;
+        /* font-size: 10px; */
+    }
+
+    .ai_btn{
+        bottom: 36.5%;
+    }
+
+    .spam_btn{
+        bottom: 36.5%;
+    }
+
+   .buttons{
+    margin-bottom: 60px;
+   }
+   
+   .heading p{
+     font-size: 16px;
+   }
+
+   .heading h1{
+      margin-bottom: -50px;
+      margin-top: 20px;
+   }
+
+   #png_block{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 120px;
+    width:50%;
+    /* background-color: white; */
+   }
+
+   #inp_img{
+    width: 50px;
+    height: 50px;
+  }
+
+  .email_inps{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    gap: 20px;
+}
+
+}

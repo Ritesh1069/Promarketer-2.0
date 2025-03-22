@@ -1,0 +1,154 @@
+.right_block{
+    /* height: 550px; */
+    width: 40%;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    position: relative;
+    /* justify-content: center; */
+    top: -40px;
+    align-items: center;
+    margin-top:80px ;
+    flex-direction: column;
+    /* padding-top: 10%; */
+    /* gap: 30px; */
+}
+
+.input{
+    /* border: 1px solid black; */
+    /* height: 170%; */
+    width: 80%;
+    border-radius: 8px;
+    background-color: rgb(232, 232, 232);
+    outline: none;
+    border: 0;
+    /* margin-top: 10px; */
+    /* box-decoration-break: none;    */
+    /* height: 90%; */
+}
+
+.right_block p{
+    font-size: 10px;
+    font-weight: 300;
+    color: rgb(127, 127, 127);
+}
+
+
+
+.input[type="file"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* height: 70px; */
+  }
+
+.input[type="number"]{
+    height: 120px;
+    display: flex;
+}
+
+.input[type="text"]{
+    height: 120px;
+    display: flex;
+    /* width: 10px; */
+}
+
+.input[type="file"]{
+    height: 120px;
+    display: flex;
+    
+}
+    
+.whats_content{
+    /* top: 900px; */
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 20px;
+    width: 80%;
+    /* height: 100%; */
+}
+
+.heading b{
+    /* background-color: #008000;; */
+    color: #008d00;
+}
+
+#btns{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#what_color{
+    color: green;
+}
+
+.ai_btn_whtsp{
+    position: absolute;
+    /* margin-left: -90px; */
+    bottom: 36.5%;
+    right: 52.7%;
+    width: 80px;
+    height: 30px;
+    background-color: rgb(33, 33, 33);
+    color: white;
+    border-radius: 8px 0px 8px 0px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+#conty{
+    margin-top: 20px;
+    height: 250px;
+}
+
+.right_block h5{
+    margin-block: 20px;
+}
+
+@media(max-width:760px){
+    .img_h1{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* width: 10%; */
+    }
+    
+    .right_block{
+        width: 80%;
+        
+    }
+
+    h5{
+        font-size: 20px;
+    }
+    .buttons{
+        bottom: 10%;
+        display: flex;
+        position:absolute;
+    }
+    
+    .ai_btn_whtsp{
+        margin-bottom:4%;
+    
+        width: 60px;
+    }
+
+    #conty{
+        height: 100px;
+    }
+
+    #btns{
+        margin-bottom: -40px;
+        margin-top: 0px;
+    }
+}
+
+
+

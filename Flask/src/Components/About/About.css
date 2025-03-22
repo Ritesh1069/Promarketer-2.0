@@ -1,0 +1,109 @@
+.about_nav{
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    font-size: 28px;
+    /* border-top: 1px solid ; */
+    margin-top: -37px;
+    background-color: rgb(255, 255, 255);
+    width:130px;
+    
+    
+    /* position: absolute; */
+}
+
+.about_whole{
+    border-top: 2px solid black;
+    margin-top: 50px;
+    justify-content: center;
+    display: flex;
+    /* margin-left: auto;
+    margin-right: auto; */
+    position: relative;
+    align-items: center;
+}
+
+.abt_img_content{
+    margin-top: -3%;
+    display: flex;
+   max-width: 90%;
+   justify-content: space-between;
+
+}
+
+.abt_img_content img{
+    width: 40%;
+    height: 40%; /* Adjust the height as needed */
+    object-fit: cover;
+    /* top: 3px; */
+}
+
+.abt_img_content p {
+    width: 40%;
+    font-size: 22px;
+    font-weight: 400;
+    display: flex;
+    margin-left: 10%;
+    display: flex;
+    align-items: center;
+}
+
+
+.divvy{
+    /* margin-top: 90px; */
+    border-top:  2px solid black;
+    margin-bottom: -10px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 28px;
+    margin-top: 50px;
+}
+
+#cont_nav{
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    /* width: 100%; */
+    margin-bottom: 10px;
+}
+
+.abt_learn{
+    display: flex;
+    justify-content: center;
+
+}
+
+.navvv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.heading p{
+    margin-top: 70px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+@media(max-width:760px){
+
+    .abt_img_content img{
+       display: none;
+    }
+
+    .abt_img_content p {
+        width: 85%;
+        font-size: 18px;
+        text-align: center;
+        font-weight: 400;
+        display: flex;
+        margin-left: 13%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
