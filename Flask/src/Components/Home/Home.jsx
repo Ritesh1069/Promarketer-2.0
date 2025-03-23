@@ -30,7 +30,7 @@ const Home = () => {
     {
       id: 1,
       title: "Orbis AI",
-      icon: "/ai.png",
+      icon: "/orbis logo.png",
       description: "Advanced AI-powered analytics and insights",
       more: "more image info",
       color: "#4285f4",
@@ -40,7 +40,7 @@ const Home = () => {
     {
       id: 2,
       title: "Gemini",
-      icon: "/ai.png",
+      icon: "/gemini logo.png",
       description: "Powerful language model integration",
       more: "more image info",
       color: "#34a853",
@@ -50,7 +50,7 @@ const Home = () => {
     {
       id: 3,
       title: "Image Enhancer",
-      icon: "/ai.png",
+      icon: "/image enhancer logo.png",
       description: "Professional image enhancement tools",
       more: "more image info",
       color: "#fbbc05",
