@@ -13,29 +13,47 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [cnt, setCnt] = useState('Log Out');
   const handleLogout = () => {
-    axios.post('http://localhost:8080/api/logout')
+    if(cnt === 'Log Out'){
+      axios.post('http://localhost:8080/api/logout')
     .then(response => {
       console.log(response.data);
     })
     .catch(error => {
       console.error('Error logging out:', error);
     });
+    alert('Logged out successfully');
     window.location.href = 'http://localhost:3000/login';
+  }
+  else{
+    window.location.href = 'http://localhost:3000/login';
+  }
   };
   useEffect(() => {
-    axios.get('http://localhost:8080/api/get_login_status')
-    .then(response => {
-      if(response.data.login_status === true){
-        setCnt('Log Out');
-      }
-      else{
-        setCnt('Log In');
-      }
-    })
-    .catch(error => {
-      console.error('Error fetching login status:', error);
-    });
-  }, 10);
+    // Function to check login status
+    const checkLoginStatus = () => {
+      axios.get('http://localhost:8080/api/get_login_status')
+        .then(response => {
+          if(response.data.login_status === true){
+            setCnt('Log Out');
+          }
+          else{
+            setCnt('Log In');
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching login status:', error);
+        });
+    };
+
+    // Initial check
+    checkLoginStatus();
+
+    // Set up interval to check every 1000ms (1 second)
+    const intervalId = setInterval(checkLoginStatus, 500);
+
+    // Cleanup function to clear interval when component unmounts
+    return () => clearInterval(intervalId);
+  }); // Empty dependency array means this effect runs once on mount
   // Add state for dropdown
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -72,7 +90,7 @@ const Navbar = () => {
         <li><Link to={'/about'}>About</Link></li>
         <li><Link to={'/contact'}>Contact us</Link></li>
       </ul>
-      <button onClick={handleLogout} className="logout-btn">{cnt}</button>
+      <button onClick={handleLogout} className="logout-btn" style={{marginRight:'49px'}}>{cnt}</button>
      {/* <div className='login'> */}
       {/* <BsSearch className='searchicon' style={{ fontSize: '24px'}} /> */}
       {/* <Logins>

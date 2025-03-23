@@ -43,7 +43,7 @@ const Gemini = () => {
       <div className="img_h1">
         <div className="heading">
       
-        <h1>WELCOME TO <b id='color'>CONTENT-BOT</b></h1>
+        <h1>WELCOME TO <b id='color'>GEMINI Content-bot</b></h1>
          <p>🚀 Meet Gemini AI Content Generating Bot: Your WhatsApp assistant leveraging AI for instant responses, data gathering, and task execution. Streamline communication, enhance user experience, and boost productivity effortlessly! #GeminiAI #WhatsAppBot 🤖✨🌟 Revolutionize your WhatsApp interactions with Gemini AI: The ultimate AI-powered assistant for seamless communication, quick responses, and efficient task handling. Say hello to enhanced productivity and unparalleled user experience! 🚀📱</p>
 
          {/* <Button className='outline' name='LEARN MORE' style={{ marginBottom:'20px' }}/> */}

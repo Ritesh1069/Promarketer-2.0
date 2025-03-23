@@ -23,7 +23,7 @@ nav ul{
     list-style-type: none;
     display: flex;
     gap: 90px;
-    margin-left: -55%;
+    margin-left: -53.5%;
 }
 
 nav ul li a {
@@ -34,7 +34,7 @@ nav ul li a {
 .logo{
     height: 200px;
     width: 260px;
-    margin: -60px;
+    margin: -27px;
 }
 
 .social_imgs{

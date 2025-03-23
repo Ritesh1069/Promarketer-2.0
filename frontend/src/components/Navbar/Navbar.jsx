@@ -12,30 +12,48 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
   const [cnt, setCnt] = useState('Log Out');
-  useEffect(() => {
-    axios.get('http://localhost:8080/api/get_login_status')
-    .then(response => {
-      if(response.data.login_status === true){
-        setCnt('Log Out');
-      }
-      else{
-        setCnt('Log In');
-      }
-    })
-    .catch(error => {
-      console.error('Error fetching login status:', error);
-    });
-  }, 10);
   const handleLogout = () => {
-    axios.post('http://localhost:8080/api/logout')
+    if(cnt === 'Log Out'){
+      axios.post('http://localhost:8080/api/logout')
     .then(response => {
       console.log(response.data);
     })
     .catch(error => {
       console.error('Error logging out:', error);
     });
-    navigate('/login');
+    alert('Logged out successfully');
+    window.location.href = 'http://localhost:3000/login';
+  }
+  else{
+    window.location.href = 'http://localhost:3000/login';
+  }
   };
+  useEffect(() => {
+    // Function to check login status
+    const checkLoginStatus = () => {
+      axios.get('http://localhost:8080/api/get_login_status')
+        .then(response => {
+          if(response.data.login_status === true){
+            setCnt('Log Out');
+          }
+          else{
+            setCnt('Log In');
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching login status:', error);
+        });
+    };
+
+    // Initial check
+    checkLoginStatus();
+
+    // Set up interval to check every 1000ms (1 second)
+    const intervalId = setInterval(checkLoginStatus, 500);
+
+    // Cleanup function to clear interval when component unmounts
+    return () => clearInterval(intervalId);
+  });
   return (
     <>
 
@@ -77,7 +95,7 @@ const Navbar = () => {
       <Button class='outline' name='LOGIN'/>
       <Button class='bluebox' name='SIGN IN'/>
       </div> */}
-       <button onClick={handleLogout} className="logout-btn">{cnt}</button>
+       <button onClick={handleLogout} className="logout-btn" >{cnt}</button>
       {/* </Logins> */}
       {/* <Link to={'/'}><div className="menuicon"><IoMdMenu style={{fontSize:'36px'}}/></div></Link> */}
       </div>

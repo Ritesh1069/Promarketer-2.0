@@ -34,7 +34,7 @@ const Contact_x = () => {
            <input className='input' type="text" placeholder="Enter your Query"  id='conty'/>
            <div className='buttons' id='btns'>
               <Button className='bluebox' name='SUBMIT'/>
-              <Button className='outline' name='RESET'/>  
+              {/* <Button className='outline' name='RESET'/>   */}
         </div>
        </div>
 

@@ -49,7 +49,7 @@ const Footer = () => {
 
           {/* Guides Column */}
           <div className="footer-column">
-            <h3>Guides</h3>
+            <h3>Our Services</h3>
             <ul className="footer-links">
               <li><a href="/analytics">Orbis Ai</a></li>
               <li><a href="http://localhost:5173/gemini">Gemini</a></li>
@@ -63,7 +63,7 @@ const Footer = () => {
         </div>
 
         <div className="copyright">
-          © {new Date().getFullYear()} AIxelerate Labs. All rights reserved.
+          © {new Date().getFullYear()} AIxelerate. All rights reserved. | Empowering Smarter Marketing with AI
         </div>
       </div>
     </footer>

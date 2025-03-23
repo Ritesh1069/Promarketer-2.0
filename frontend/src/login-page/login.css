@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Modern color palette */
-  --primary-color: #6366f1;
-  --primary-dark: #4f46e5;
-  --primary-light: #818cf8;
-  --secondary-color: #14b8a6;
-  --accent-color: #f43f5e;
-  --accent-hover: #e11d48;
+  /* Modern professional color palette */
+  --primary-color: #f8fafc;
+  --primary-dark: #f1f5f9;
+  --primary-light: #ffffff;
+  --secondary-color: #0284c7;
+  --accent-color: #0284c7;
+  --accent-hover: #0369a1;
   
   /* Background colors */
-  --card-background: rgba(255, 255, 255, 0.95);
+  --card-background: rgba(255, 255, 255, 1);
   
   /* Text colors */
-  --text-primary: #1e293b;
-  --text-secondary: #64748b;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
   
   /* Border and shadow */
   --border-color: #e2e8f0;
@@ -43,19 +43,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
   padding: 2rem;
 }
 
 .login-card {
-  background: var(--card-background);
+  background: #ffffff !important;
   border-radius: var(--radius-lg);
   padding: 2.5rem;
   width: 100%;
   max-width: 450px;
   box-shadow: var(--shadow-lg);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color) !important;
 }
 
 .login-header {
@@ -110,7 +109,7 @@ body {
 }
 
 .login-button {
-  background: var(--accent-color);
+  background: var(--accent-color) !important;
   color: white;
   padding: 0.75rem;
   border: none;
@@ -123,8 +122,7 @@ body {
 }
 
 .login-button:hover {
-  background: var(--accent-hover);
-  transform: translateY(-1px);
+  background: var(--accent-hover) !important;
 }
 
 .login-footer {
@@ -155,6 +153,17 @@ body {
   border-radius: var(--radius-md);
   font-size: 0.9rem;
   text-align: center;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.login-logo {
+  max-width: 350px;
+  height: auto;
+  margin-bottom: -4rem;
 }
 
 @media (max-width: 640px) {

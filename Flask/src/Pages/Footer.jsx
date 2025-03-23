@@ -63,7 +63,7 @@ const Footer = () => {
         </div>
 
         <div className="copyright">
-          © {new Date().getFullYear()} AIxelerate Labs. All rights reserved.
+          © {new Date().getFullYear()} AIxelerate. All rights reserved. | Empowering Smarter Marketing with AI
         </div>
       </div>
     </footer>

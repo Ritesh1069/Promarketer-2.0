@@ -76,8 +76,11 @@ const LoginPage = () => {
     <div className="login-container">
       <div className="login-card">
         <div className="login-header">
+          <div className="logo-container">
+            <img src={'/aixelerate logo.png'} alt="AIxelerate Logo" className="login-logo" />
+          </div>
           <h1>{isLogin ? 'Welcome Back' : 'Create Account'}</h1>
-          <p>{isLogin ? 'Sign in to continue' : 'Join us to get started'}</p>
+          <p>{isLogin ? 'Sign in to continue to AIxelerate' : 'Join us to get started to AIxelerate'}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="login-form">

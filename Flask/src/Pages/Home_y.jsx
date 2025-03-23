@@ -11,7 +11,7 @@ const Home_y = () => {
     <div>
         <Navbar/>
       <Home/>
-      <Explore/>
+      {/* <Explore/> */}
       <About/>
       <Contact_x/>
       <Footer/>
