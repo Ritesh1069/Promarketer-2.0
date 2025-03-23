@@ -1,7 +1,7 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS, cross_origin
 import requests,os
-from backmodules import emailbot, find_data, check_number, gemini, spammy
+from backmodules import emailbot, find_data, check_number, gemini, spammy, Image_Enhancer_final
 import pandas as pd
 import pywhatkit as w
 import pyautogui
@@ -300,7 +300,7 @@ def analyze():
 
 @app.route('/email_data', methods=["GET", "POST"])
 def Email_Run():
-    file,input_content,input_data= False,False,False
+    file,input_subject,input_content,input_data= False,False,False,False
     if ('file' not in request.files) and ('inputData' not in request.form):
         return {'message': 'No Emails provided, NO Database? no worries use ours!'}
     
@@ -309,6 +309,11 @@ def Email_Run():
         
     if 'inputData' in request.form:
         input_data = request.form['inputData']
+    
+    if 'inputSubject' in request.form:
+        input_subject = request.form['inputSubject']
+    else:
+        return {'message': 'No Subject provided.'}
         
     if 'inputContent' in request.form:
         input_content = request.form['inputContent']
@@ -319,14 +324,14 @@ def Email_Run():
         email_file=find_data.find_email_col(file)
         for email_col in email_file:
             for email_id in  email_file[email_col]:
-                print(emailbot.emailexecute(email_id,input_content))
+                print(emailbot.emailexecute(email_id,input_subject,input_content))
          
     
     if input_data:
         email_list = input_data.split(',')
         for email_id in email_list:
             
-            print(emailbot.emailexecute(email_id,input_content))
+            print(emailbot.emailexecute(email_id,input_subject,input_content))
     
     return {'message': 'All mails sent successfully'}
 
@@ -407,6 +412,35 @@ def Spam_run():
         return {'message': reply}
     else:
         return {'message': 'Error: Please enter Email Content to check if it is Spam or not'}
+
+@app.route('/process-image', methods=['POST'])
+def process_product_image():
+    try:
+        if 'image' not in request.files:
+            return jsonify({'error': 'No image provided'}), 400
+        
+        image = request.files['image']
+        prompt = request.form.get('prompt', 'Professional studio background')
+        
+        # Save temporary image
+        temp_path = f"temp_{image.filename}"
+        image.save(temp_path)
+        
+        # Process image
+        output_path = Image_Enhancer_final.process_image(temp_path, prompt)
+        
+        # Read the output image and send it directly
+        with open(output_path, 'rb') as img_file:
+            img_data = BytesIO(img_file.read())
+        
+        # Clean up temporary files
+        os.remove(temp_path)
+        os.remove(output_path)
+        
+        return send_file(img_data, mimetype='image/jpeg')
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
     
 # Running app
 if __name__ == '__main__':

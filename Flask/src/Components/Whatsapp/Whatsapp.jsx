@@ -69,7 +69,7 @@ const Whatsapp = () => {
         <h1>WELCOME TO <b id='what_color'>WHATSAPP-BOT</b></h1>
          <p>A WhatsApp bot is an automated software designed to interact with users on the WhatsApp platform. Leveraging AI and predefined responses, it can answer queries, provide information, and perform tasks based on user input. WhatsApp bots are employed in various domains, from customer service to marketing, streamlining communication processes. They offer quick responses, gather data, and execute tasks, enhancing user experience and facilitating businesses in managing interactions efficiently on the popular messaging platform.</p>
 
-         <Button class='outline' name='LEARN MORE' style={{ marginBottom:'20px' }}/>
+         {/* <Button class='outline' name='LEARN MORE' style={{ marginBottom:'20px' }}/> */}
         </div>
 
         <div className="right_block">
@@ -84,10 +84,13 @@ const Whatsapp = () => {
             </div>
             <div className='buttons'>
                {/* <Button class='bluebox' name='SUBMIT'/> */}
-               <button name='SUBMIT' onClick={getData}>SUBMIT</button>
-               <div id='api_res'><p>{res}</p></div>
-               <Button class='outline' name='RESET'/>  
+               {/* <button name='SUBMIT' onClick={getData}>SUBMIT</button> */}
+               <button name='SUBMIT' onClick={getData} style={{backgroundColor:'#007bff', color:'white', border:'none', padding:'10px 20px', borderRadius:'5px', cursor:'pointer', marginTop:'-30px'}}>SUBMIT</button>
+               {/* <div id='api_res'><p>{res}</p></div> */}
+               {/* <Button class='outline' name='RESET'/>   */}
          </div>
+         <br />
+         <div id='api_res'><p>{res}</p></div>
         </div>
 
          </div>

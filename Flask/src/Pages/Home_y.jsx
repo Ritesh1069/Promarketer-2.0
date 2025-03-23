@@ -4,6 +4,7 @@ import Explore from '../Components/Explore/Explore'
 import About from '../Components/About/About'
 import Navbar from '../Components/Navbar/Navbar'
 import Contact_x from '../Components/Contact_x'
+import Footer from './Footer'
 
 const Home_y = () => {
   return (
@@ -13,6 +14,7 @@ const Home_y = () => {
       <Explore/>
       <About/>
       <Contact_x/>
+      <Footer/>
     </div>
   )
 }

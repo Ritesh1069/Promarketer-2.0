@@ -11,6 +11,7 @@ const Content = (props) => {
   const [res, setRes] = useState(null)
   const [selectedFile, setSelectedFile] = useState(null);
   const [content, setContent] = useState('');
+  const [subject, setSubject] = useState('');
   const [data, setData] = useState('');
   const [spam, setSpam] = useState(null)
 
@@ -26,11 +27,16 @@ const Content = (props) => {
     setContent(event.target.value);
   };
 
+  const handleSubjectChange = (event) => {
+    setSubject(event.target.value);
+  };
+
   const getData = () => {
     
-    if(content && (selectedFile || data)){
+    if(content && subject && (selectedFile || data)){
       const formData = new FormData();
       formData.append('inputContent', content);
+      formData.append('inputSubject', subject);
       if (selectedFile) {
         formData.append('file', selectedFile);
       }
@@ -46,11 +52,19 @@ const Content = (props) => {
         setRes('Error'+error);
       });
     }
-    else if(content){
-      setRes('Error: No Emails provided, NO Database? no worries use ours!')
+    else if(subject && content){
+      setRes('Error: No Emails provided')
     }
+    // else if(content){
+    //   setRes('Error: No Emails provided, NO Database? no worries use ours!')
+    // }
     else{
-      setRes('Error: No Content provided, Dont have any content? try our AI!')
+      if(subject){
+        setRes('Error: No Content provided, Dont have any content? try our AI!')
+      }
+      else{
+        setRes('Error: No Subject provided')
+      }
     }
   }
   
@@ -78,7 +92,7 @@ const Content = (props) => {
         <div className="heading">
           <h1>{props.h1}</h1>
           <p>{props.p}</p>
-          <Button class='outline' name='LEARN MORE' style={{ marginBottom: '20px' }} />
+          {/* <Button class='outline' name='LEARN MORE' style={{ marginBottom: '20px' }}/> */}
         </div>
 
         <div className="right_block">
@@ -90,23 +104,28 @@ const Content = (props) => {
               <img src="file_logo.png" alt="Upload your .CSV file" className="input-image" id='inp_img'/>
               <input type="file" name="file" id="file" accept=".csv, .xls, .xlsx" style={{ display: 'none' }} onChange={handleFileChange}/>
             </label>
-            
+            <p style={{fontSize:'20px', fontWeight:'bold', marginTop:'45px'}}>OR</p>
             {/* Alternatively, you can use a text input */}
             <input className='input' type="text" name="Manual upload" id="file" placeholder='Provide emails directly' value={data} onChange={handleDataChange}/>
           </div>
 
-          <p>OR</p>
-          <input className="input" type="text" name="Enter your Content here" id="inpemail" value={content} onChange={handleContentChange}/>
+          {/* <p>OR</p> */}
+          <p style={{marginBottom: '25px'}}></p>
+          <input style={{height: '10%'}} className="input" type="text" name="Enter your Subject here" placeholder='Enter your Subject here' id="inpemail" value={subject} onChange={handleSubjectChange}/>
+          <input style={{width: '100%'}} className="input" type="text" name="Enter your Content here" placeholder='Enter your Content here' id="inpemail" value={content} onChange={handleContentChange} style={{marginTop: '10px'}}/>
           <Link to={'/gemini'}><button className='ai_btn'> <FaMagic /> AI</button></Link>
           <button className='spam_btn'onClick={checkSpam}> <RiSpamFill size={20} /> Check Spam</button>
           <div className='buttons'>
             {/* <Button class='bluebox' name='SUBMIT' bid={props.cid}/> */}
-            <button name='SUBMIT' onClick={getData}>SUBMIT</button>
-            <div id='api_res'><p>{res}</p></div>
-            <Button class='outline' name='RESET' />
+            <button name='SUBMIT' onClick={getData} style={{backgroundColor:'#007bff', color:'white', border:'none', padding:'10px 20px', borderRadius:'5px', cursor:'pointer', marginTop:'-30px'}}>SUBMIT</button>
+            {/* <div id='api_res'><p>{res}</p></div> */}
+            {/* <Button class='outline' onClick={getData} name='SUBMIT' />
+            <Button class='outline' name='RESET' /> */}
           </div>
+          <div id='api_res'><p>{res}</p></div>
         </div>
       </div>
+      
     </>
   )
 }

@@ -3,9 +3,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import time
 
-def emailexecute(email,content):
+def emailexecute(email,subject,content):
   fromEmail = "aiengineer108@gmail.com"
-  subject = "PRO MARKETER "
+  # subject = subject
   message = content
   sendMail(fromEmail, email, subject, message)
   return ("Mail sent to - "+email)

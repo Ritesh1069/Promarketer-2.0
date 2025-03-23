@@ -20,21 +20,22 @@ nav{
 
 
 nav ul{
-    margin-left: 42px;
+    margin-left: -52.1%;
     margin-top: 20px;
     list-style-type: none;
     display: flex;
     gap: 90px;
 }
 
-nav ul a {
+nav ul li a {
+    color: rgb(95, 95, 95);
     text-decoration: none;
-}
+  }
 
 .logo{
-    height: 50px;
-    width: 180px;
-    margin: auto 24px;
+    height: 200px;
+    width: 260px;
+    margin: -60px;
 }
 
 .social_imgs{
@@ -169,3 +170,55 @@ nav ul a {
 .logout-btn:hover {
   background-color: #b91c1c;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropbtn {
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    /* padding: 14px 16px; */
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Make sure the SERVICES text inherits the same styles as other nav items */
+  .dropdown .dropbtn {
+    color: rgb(95, 95, 95);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(95, 95, 95, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: rgb(95, 95, 95);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  .dropdown-arrow {
+    transition: transform 0.2s ease;
+  }
+  
+  .dropdown-arrow.rotated {
+    transform: rotate(180deg);
+  }

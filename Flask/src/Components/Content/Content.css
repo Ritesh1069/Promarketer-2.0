@@ -1,10 +1,10 @@
 .right_block{
-    height: 550px;
+    height: 650px;
     width: 40%;
     border: 1px solid black;
     border-radius: 10px;
     display: flex;
-    position: relative;
+    position: fixed;
     /* justify-content: center; */
     align-items: center;
     margin-top:80px ;
@@ -69,7 +69,7 @@
 .ai_btn{
     position: absolute;
     /* margin-left: -90px; */
-    bottom: 33.5%;
+    bottom: 32.5%;
     right: 9.7%;
     width: 80px;
     height: 30px;
@@ -89,7 +89,7 @@
 .spam_btn{
     position: absolute;
     /* margin-left: -90px; */
-    bottom: 33.5%;
+    bottom: 32.5%;
     left: 9.7%;
     width: 120px;
     height: 30px;

@@ -19,7 +19,7 @@ const Contact_x = () => {
       
         <p>Welcome to XYZ, your premier destination for online automated marketing solutions. We're dedicated to helping businesses thrive in the digital landscape through innovative marketing strategies and cutting-edge technology. If you have any questions, inquiries, or feedback, we're here to assist you every step of the way. Get in touch with us using the following contact information      <br></br> <br></br>     At XYZ, we value your feedback and are committed to providing you with exceptional service. Whether you're a small startup or a large corporation, let us help you achieve your marketing goals. Reach out to us today and take the first step towards maximizing your online presence and growing your business.</p>
 
-        <Button className='outline' name='LEARN MORE' style={{ marginBottom:'20px' }}/>
+        {/* <Button className='outline' name='LEARN MORE' style={{ marginBottom:'20px' } }/> */}
        </div>
 
        <div className="right_block">

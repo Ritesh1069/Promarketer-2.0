@@ -34,7 +34,6 @@
 }
 
 
-
 .input[type="file"] {
     display: flex;
     justify-content: center;
@@ -87,8 +86,8 @@
 .ai_btn_whtsp{
     position: absolute;
     /* margin-left: -90px; */
-    bottom: 36.5%;
-    right: 52.7%;
+    bottom: 46.5%;
+    right: 52.53%;
     width: 80px;
     height: 30px;
     background-color: rgb(33, 33, 33);
