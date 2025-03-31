@@ -7,7 +7,7 @@ import './Gemini.css'
 import { Link } from 'react-router-dom';
 import { useState } from 'react'
 import axios from 'axios';
-
+import Footer from '../../Pages/Footer';
 const Gemini = () => {
   const [res, setRes] = useState(null)
   const [data, setData] = useState('');
@@ -60,7 +60,7 @@ const Gemini = () => {
             {/* <input className="gemini_response" type="text" placeholder="response will be generated here" value={res} />    */}
            <div style={{marginLeft: 10 , marginRight: 10,textAlign: 'justify', color: 'black'}}><p style={{ fontSize: 20, fontWeight: 'normal' }}>GEMINI AI: {res}</p></div>
         </div>
-
+        <Footer/>
          </div>
 
 
